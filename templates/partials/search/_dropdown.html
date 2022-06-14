@@ -1,0 +1,11 @@
+
+{% if request.path != "/" %}
+<!--begin::Search-->
+
+	<div class="d-flex align-items-center" data-kt-search-element="toggle" id="kt_header_search_toggle">
+
+        {% include 'partials/search/search_bar.html' %}
+	</div>
+
+<!--end::Search-->
+{% endif %}

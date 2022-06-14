@@ -1,0 +1,272 @@
+{% extends 'base.html' %}
+{% block content %}
+						<!--begin::Toolbar-->
+						<div class="toolbar" id="kt_toolbar">
+							<!--begin::Container-->
+							<div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
+								<!--begin::Page title-->
+								<div data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}" class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
+									<!--begin::Title-->
+									<h1 class="d-flex text-dark fw-bolder fs-3 align-items-center my-1">{{product.name}}
+									<!--begin::Separator-->
+									<span class="h-20px border-1 border-gray-200 border-start ms-3 mx-2 me-1"></span>
+									<!--end::Separator-->
+									<!--begin::Description-->
+									<span class="text-muted fs-7 fw-bold ms-2">{{product.pcces_encode}}</span>
+									<!--end::Description--></h1>
+									<!--end::Title-->
+								</div>
+								<!--end::Page title-->
+
+                        </div>
+                        <!--end::Container-->
+                        </div>
+                        <!--end::Toolbar-->
+<div class="post d-flex flex-column-fluid" id="kt_post">
+    <!--begin::Container-->
+    <div id="kt_content_container" class="container-xxl">
+        <!--begin::Layout Builder Notice-->
+        <div class="card mt-3 mb-2 ">
+            <div class="card-body d-flex">
+                        <!-- <div class="col-lg-3 text-lg-end">編碼</div> -->
+                            <!--begin::Row-->
+                            <div class="row mb-2 container-fluid">
+                                <div class="row justify-content-center container-fluid"> 
+                                    <!--begin::Col-->
+                                    <div class="col-lg-12 pe-12 container-fluid">
+                                        <!--begin::Row-->
+                                        <div class="row container-fluid">
+                                            <div class="col-1 ">
+                                                <span class="fs-5 fw-bolder">編碼</span>
+                                            </div>                                           
+                                            <div class="col-1 border-end border-dark align-self-center" style="text-align:center;">
+                                                <span class="fs-5 fw-bolder ">M</span>
+                                            </div>
+                                            <div class="col-2 border-end border-dark" style="text-align:center;">
+                                                <span class="fs-5 fw-bolder">03050</span>
+                                            </div>
+                                            <div class="col-2 border-end border-dark" style="text-align:center;">
+                                                <span class="fs-5 fw-bolder">4</span>
+                                            </div>
+                                            <div class="col-2 border-end border-dark" style="text-align:center;">
+                                                <span class="fs-5 fw-bolder">3</span>
+                                            </div>
+                                            <div class="col-1 border-end border-dark" style="text-align:center;">
+                                                <span class="fs-5 fw-bolder">0</span>
+                                            </div>
+                                            <div class="col-1 border-end border-dark" style="text-align:center;">
+                                                <span class="fs-5 fw-bolder">0</span>
+                                            </div>
+                                            <div class="col-1" style="text-align:center;">
+                                                <span class="fs-5 fw-bolder">3</span>
+                                            </div>
+                                        </div>
+                                        <div class="row container-fluid">
+                                            <div class="col-1 ">
+                                                <span class="fs-5 fw-bolder"></span>
+                                            </div>
+                                            <div class="col-1 border-top border-end border-dark" style="text-align:center;">
+                                                <span class="fs-5 fw-bolder">產品</span>
+                                            </div>
+                                            <div class="col-2 border-top border-end border-dark" style="text-align:center;">
+                                                <span class="fs-5 fw-bolder">(混凝土基本材料及施工一般要求)</span>
+                                            </div>
+                                            <div class="col-2 border-top border-end border-dark" style="text-align:center;">
+                                                <span class="fs-5 fw-bolder">預拌混凝土材料費</span>
+                                            </div>
+                                            <div class="col-2 border-top border-end border-dark" style="text-align:center;">
+                                                <span class="fs-5 fw-bolder">175kgf/cm2</span>
+                                            </div>
+                                            <div class="col-1 border-top border-end border-dark" style="text-align:center;">
+                                                <span class="fs-5 fw-bolder">不分類</span>
+                                            </div>
+                                            <div class="col-1 border-top border-end border-dark" style="text-align:center;">
+                                                <span class="fs-5 fw-bolder">不分類</span>
+                                            </div>
+                                            <div class="col-1 border-top border-dark" style="text-align:center;">
+                                                <span class="fs-5 fw-bolder">M3</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--end::Row-->
+                                </div>
+                                <!--end::Col-->
+                            </div>
+                            <!--end::Row-->
+            </div>
+        </div>
+        <!--end::Layout Builder Notice-->
+        <!--begin::Card-->
+        <div class="card">
+            <!--begin::Header-->
+            <div class="card-header card-header-stretch overflow-auto">
+                <!--begin::Tabs-->
+                <ul class="nav nav-stretch nav-line-tabs fw-bold border-transparent flex-nowrap" role="tablist" id="kt_layout_builder_tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-bs-toggle="tab" href="#kt_builder_main" role="tab">產品資訊</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#kt_builder_header" role="tab">碳足跡資訊</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#kt_builder_toolbar" role="tab">建置單位</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#kt_builder_page_title" role="tab">審查單位</a>
+                    </li>
+                </ul>
+                <!--end::Tabs-->
+            </div>
+            <!--end::Header-->
+            <!--begin::Form-->
+            <form class="form" method="POST" id="kt_layout_builder_form" action="/metronic8/demo1/index.php">
+                <!--begin::Body-->
+                <div class="card-body">
+                    <div class="tab-content pt-3">
+                        <!--begin::Tab pane-->
+                        <div class="tab-pane active" id="kt_builder_main">
+                            <!--begin::Row-->
+                            <div class="row mb-10">
+                                <span class="col-lg-3 text-lg-end">PCCES 編碼 : </span>
+                                <span class="col-lg-9 col-xl-4 text-lg-start">{{product.pcces_encode}}</span>
+                            </div>
+                            <!--end::Row-->
+                            <!--begin::Row-->
+                            <div class="row mb-10">
+                                <span class="col-lg-3 text-lg-end">產品製造地點 : </span>
+                                <span class="col-lg-9 col-xl-4 text-lg-start">{{product.origin}}</span>
+                            </div>
+                            <!--end::Row-->
+                            <!--begin::Row-->
+                            <div class="row mb-10">
+                                <span class="col-lg-3 text-lg-end">產品描述 : </span>
+                                <span class="col-lg-9 col-xl-4 text-lg-start">{{product.product_desc}}</span>
+                            </div>
+                            <!--end::Row-->    
+                            <!--begin::Row-->
+                            <div class="row mb-10">
+                                <span class="col-lg-3 text-lg-end">產品邊界 : </span>
+                                <span class="col-lg-9 col-xl-4 text-lg-start">{{product.scope}}</span>
+                            </div>
+                            <!--end::Row-->    
+                            <!--begin::Row-->
+                            <div class="row mb-10">
+                                <span class="col-lg-3 text-lg-end">產品分類部門 : </span>
+                                <span class="col-lg-9 col-xl-4 text-lg-start">{{product.secondary_category_id}}</span>
+                            </div>
+                            <!--end::Row-->    
+                            <!--begin::Row-->
+                            <div class="row mb-10">
+                                <span class="col-lg-3 text-lg-end">部門敘述：</span>
+                                <span class="col-lg-9 col-xl-4 text-lg-start">{{product.secondary_category_desc}}</span>
+                            </div>
+                            <!--end::Row-->        
+                            <!--begin::Row-->
+                            <div class="row mb-10">
+                                <span class="col-lg-3 text-lg-end">產業碳足跡：</span>
+                                <span class="col-lg-9 col-xl-4 text-lg-start"></span>
+                            </div>
+                            <!--end::Row-->    
+                            <!--begin::Row-->
+                            <div class="row mb-10">
+                                <span class="col-lg-3 text-lg-end">產品運輸所屬部門：</span>
+                                <span class="col-lg-9 col-xl-4 text-lg-start"></span>
+                            </div>
+                            <!--end::Row-->            
+
+                        </div>
+                        <!--end::Tab pane-->
+                        <!--begin::Tab pane-->
+                        <div class="tab-pane" id="kt_builder_header">
+                            <div class="row mb-10">
+                                <span class="col-lg-3 text-lg-end">碳足跡數值：</span>
+                                <span class="col-lg-9 col-xl-4 text-lg-start">{{product.pcces_encode}}</span>
+                            </div>
+                            <div class="row mb-10">
+                                <span class="col-lg-3 text-lg-end">生命週期盤查分析方法：</span>
+                                <span class="col-lg-9 col-xl-4 text-lg-start">{{product.analytic_method_id}}</span>
+                            </div>
+                            <div class="row mb-10">
+                                <span class="col-lg-3 text-lg-end">排放係數來源：</span>
+                                <span class="col-lg-9 col-xl-4 text-lg-start">{{product.emission_coefficient_source}}</span>
+                            </div>
+                            <div class="row mb-10">
+                                <span class="col-lg-3 text-lg-end">活動數據來源：</span>
+                                <span class="col-lg-9 col-xl-4 text-lg-start"></span>
+                            </div>
+                            <div class="row mb-10">
+                                <span class="col-lg-3 text-lg-end">國際規範：</span>
+                                <span class="col-lg-9 col-xl-4 text-lg-start">{{product.ISO_standard}}</span>
+                            </div>
+                            <div class="row mb-10">
+                                <span class="col-lg-3 text-lg-end">分析時間依據：</span>
+                                <span class="col-lg-9 col-xl-4 text-lg-start">{{product.analysis_time_resource}}</span>
+                            </div>
+                            <div class="row mb-10">
+                                <span class="col-lg-3 text-lg-end">數據品質等級:</span>
+                                <span class="col-lg-9 col-xl-4 text-lg-start">{{product.data_level}}</span>
+                            </div>
+                            <div class="row mb-10">
+                                <span class="col-lg-3 text-lg-end">產品製造流程:</span>
+                                <span class="col-lg-9 col-xl-4 text-lg-start">{{product.product_flow_image}}</span>
+                            </div>
+                        </div>
+                        <!--end::Tab pane-->
+                        <!--begin::Tab pane-->
+                        <div class="tab-pane" id="kt_builder_toolbar">
+                            <div class="row mb-10">
+                                <span class="col-lg-3 text-lg-end">建置單位：</span>
+                                <span class="col-lg-9 col-xl-4 text-lg-start">{{product.company_name}}</span>
+                            </div>
+                            <div class="row mb-10">
+                                <span class="col-lg-3 text-lg-end">聯絡電話：</span>
+                                <span class="col-lg-9 col-xl-4 text-lg-start">{{product.company_phone}}</span>
+                            </div>
+                            <div class="row mb-10">
+                                <span class="col-lg-3 text-lg-end">聯絡地址：</span>
+                                <span class="col-lg-9 col-xl-4 text-lg-start">{{product.company_address}}</span>
+                            </div>
+                            <div class="row mb-10">
+                                <span class="col-lg-3 text-lg-end">聯絡信箱：</span>
+                                <span class="col-lg-9 col-xl-4 text-lg-start">{{product.company_mail}}</span>
+                            </div>
+                            <div class="row mb-10">
+                                <span class="col-lg-3 text-lg-end">建置日期：</span>
+                                <span class="col-lg-9 col-xl-4 text-lg-start">{{product.create_date}}</span>
+                            </div>
+                        </div>
+                        <!--end::Tab pane-->
+                        <!--begin::Tab pane-->
+                        <div class="tab-pane" id="kt_builder_page_title">
+                            <div class="row mb-10">
+                                <span class="col-lg-3 text-lg-end">審查單位：</span>
+                                <span class="col-lg-9 col-xl-4 text-lg-start">{{product.reviewer_name}}</span>
+                            </div>
+                            <div class="row mb-10">
+                                <span class="col-lg-3 text-lg-end">聯絡電話：</span>
+                                <span class="col-lg-9 col-xl-4 text-lg-start">{{product.reviewer_phone}}</span>
+                            </div>
+                            <div class="row mb-10">
+                                <span class="col-lg-3 text-lg-end">聯絡地址：</span>
+                                <span class="col-lg-9 col-xl-4 text-lg-start">{{product.reviewer_address}}</span>
+                            </div>
+                            <div class="row mb-10">
+                                <span class="col-lg-3 text-lg-end">聯絡信箱：</span>
+                                <span class="col-lg-9 col-xl-4 text-lg-start">{{product.reviewer_mail}}</span>
+                            </div>
+                            <div class="row mb-10">
+                                <span class="col-lg-3 text-lg-end">審查日期：</span>
+                                <span class="col-lg-9 col-xl-4 text-lg-start">{{product.review_date}}</span>
+                            </div>
+                        </div>
+                        <!--end::Tab pane-->
+        </div>
+        <!--end::Card-->
+    </div>
+    <!--end::Container-->
+
+    
+</div>
+
+<div class="row align-items-center" style="height: 5vh;"></div>
+{% endblock %}

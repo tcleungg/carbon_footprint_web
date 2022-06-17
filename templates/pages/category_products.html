@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load utils%}
+{% block content %}
+<div id="kt_content_container" class="container-xxl">
+    <!--begin::Layout Builder Notice-->
+    <div class="card mb-10">
+        <div class="card-body d-flex align-items-center p-5 p-lg-8">
+            <div class="row">
+                {% if secondary_category %}
+                <h2><a href="{% url 'category'%}">{{primary_category}}</a> > {{secondary_category}}</h2>
+                {% else %}
+                <h2><a href="{% url 'category'%}">{{primary_category}}</a></h2>
+                {% endif %}
+                    <table class="table table-hover gy-7 gs-7">
+                     <thead>
+                      <tr class="fw-bold fs-6 text-gray-800 border-bottom-2 border-gray-200">
+                       <th>#</th>
+                       <th>編碼</th>
+                       <th>名稱</th>
+                       <th>大分類</th>
+                       <th>細分類</th>
+                       <th>碳足跡數值</th>
+                       <th>製造地點</th>
+                       <th>數據品質等級</th>
+                      </tr>
+                     </thead>
+                     <tbody>
+                        {% for product in products %}
+                            <tr class="table-row" data-href="{% url 'product' product.pcces_encode %}">
+                                <td>{{forloop.counter}}</td>
+                                <td>{{product.pcces_encode}}</td>
+                                <td>{{product.name}}</td>
+                                <td>{{product.primary_category_id}}</td>
+                                <td>{{product.secondary_category_id}}</td>
+                                <td>{{product.pcces_encode}}</td>
+                                <td>{{product.origin}}</td>
+                                <td>{{product.data_level}}</td>
+                            </tr>
+                        {% endfor %}  
+                     </tbody>
+                    </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

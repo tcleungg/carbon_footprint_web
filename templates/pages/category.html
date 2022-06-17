@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="container-xxl accordion" id="accordionExample">
+      <div class="card mb-10">
+        <div class="card-body d-flex align-items-center p-5 p-lg-8">
+          <div class="row">
+        <h2>分類</h2>
+      {% for primary_categories in categories %}
+      {% if primary_categories.secondary_categories.all%}
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="heading-{{ forloop.counter }}">
+          <button class="accordion-button collapsed fw-bold" 
+                  type="button" 
+                  data-bs-toggle="collapse" 
+                  data-bs-target="#collapse-{{ forloop.counter }}" 
+                  aria-expanded="false" 
+                  aria-controls="collapse-{{ forloop.counter }}">
+                  ({{ primary_categories.category_id }}) {{ primary_categories.name }}
+          </button>
+        </h2>
+        <div id="collapse-{{ forloop.counter }}" class="accordion-collapse collapse" aria-labelledby="heading-{{ forloop.counter }}" data-bs-parent="#accordionExample">
+          {% for secondary_categories in primary_categories.secondary_categories.all %}
+          <h2 class="mb-0">
+            <button class="btn" style="position: relative; 
+                                        display: flex; 
+                                        align-items: center; 
+                                        width: 100%; 
+                                        padding: 1.5rem 1.5rem; 
+                                        font-size: 1rem; 
+                                        color: #181C32;
+                                        text-align: left;
+                                        background-color: #ffffff;"
+                    data-bs-toggle="collapse" 
+                    data-bs-target="#collapse-{{ forloop.counter }}" 
+                    aria-expanded="false" 
+                    aria-controls="collapse-{{ forloop.counter }}"
+                    onclick="location.href='{% url 'secondary_category_products' primary_categories.name secondary_categories.name %}'">
+            {{ secondary_categories.name }}
+            </button>
+          </h2>
+
+          {% endfor %}
+        </div>
+      </div>
+      {% else %}
+      <div class="accordion-item">
+        <div class="accordion-header" id="heading{{ forloop.counter }}">
+          <h2 class="mb-0">
+            <button class="btn" style="position: relative; 
+                                        display: flex; 
+                                        align-items: center; 
+                                        width: 100%; 
+                                        padding: 1.5rem 1.5rem; 
+                                        font-size: 1rem; 
+                                        color: #181C32;
+                                        text-align: left;
+                                        background-color: #ffffff;"
+                    data-bs-toggle="collapse" 
+                    data-bs-target="#collapse-{{ forloop.counter }}" 
+                    aria-expanded="false" 
+                    aria-controls="collapse-{{ forloop.counter }}"
+                    onclick="location.href='{% url 'primary_category_products' primary_categories.name %}'">
+                    ({{ primary_categories.category_id }}) {{ primary_categories.name }}
+            </button>
+          </h2>
+        </div>
+      </div>
+      {% endif %}       
+      {% endfor %}
+    </div>
+    </div>
+      </div>
+    </div>
+{% endblock %}

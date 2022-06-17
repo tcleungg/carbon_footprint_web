@@ -7,13 +7,15 @@
 								<!--begin::Page title-->
 								<div data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}" class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
 									<!--begin::Title-->
-									<h1 class="d-flex text-dark fw-bolder fs-3 align-items-center my-1">{{product.name}}
-									<!--begin::Separator-->
+
+									<h1 class="d-flex text-dark fw-bolder fs-3 align-items-center my-1">
+									<!--begin::Description-->
+									<span class="text-muted fw-bold ms-2">{{product.pcces_encode}}</span>
+                                    <!--end::Description-->									<!--begin::Separator-->
 									<span class="h-20px border-1 border-gray-200 border-start ms-3 mx-2 me-1"></span>
 									<!--end::Separator-->
-									<!--begin::Description-->
-									<span class="text-muted fs-7 fw-bold ms-2">{{product.pcces_encode}}</span>
-									<!--end::Description--></h1>
+                                    <span class="ms-2">{{product.name}}</span>
+									</h1>
 									<!--end::Title-->
 								</div>
 								<!--end::Page title-->
@@ -40,25 +42,25 @@
                                                 <span class="fs-5 fw-bolder">編碼</span>
                                             </div>                                           
                                             <div class="col-1 border-end border-dark align-self-center" style="text-align:center;">
-                                                <span class="fs-5 fw-bolder ">M</span>
+                                                <span class="fs-5 fw-bolder ">{{pcces_encode.0}}</span>
                                             </div>
                                             <div class="col-2 border-end border-dark" style="text-align:center;">
-                                                <span class="fs-5 fw-bolder">03050</span>
+                                                <span class="fs-5 fw-bolder">{{pcces_encode.1}}</span>
                                             </div>
                                             <div class="col-2 border-end border-dark" style="text-align:center;">
-                                                <span class="fs-5 fw-bolder">4</span>
+                                                <span class="fs-5 fw-bolder">{{pcces_encode.2}}</span>
                                             </div>
                                             <div class="col-2 border-end border-dark" style="text-align:center;">
-                                                <span class="fs-5 fw-bolder">3</span>
+                                                <span class="fs-5 fw-bolder">{{pcces_encode.3}}</span>
                                             </div>
                                             <div class="col-1 border-end border-dark" style="text-align:center;">
-                                                <span class="fs-5 fw-bolder">0</span>
+                                                <span class="fs-5 fw-bolder">{{pcces_encode.4}}</span>
                                             </div>
-                                            <div class="col-1 border-end border-dark" style="text-align:center;">
-                                                <span class="fs-5 fw-bolder">0</span>
+                                            <div class="col-2 border-end border-dark" style="text-align:center;">
+                                                <span class="fs-5 fw-bolder">{{pcces_encode.5}}</span>
                                             </div>
                                             <div class="col-1" style="text-align:center;">
-                                                <span class="fs-5 fw-bolder">3</span>
+                                                <span class="fs-5 fw-bolder">{{pcces_encode.6}}</span>
                                             </div>
                                         </div>
                                         <div class="row container-fluid">
@@ -69,22 +71,22 @@
                                                 <span class="fs-5 fw-bolder">產品</span>
                                             </div>
                                             <div class="col-2 border-top border-end border-dark" style="text-align:center;">
-                                                <span class="fs-5 fw-bolder">(混凝土基本材料及施工一般要求)</span>
+                                                <span class="fs-5 fw-bolder">{{pcces_encode_desc.chapter}}</span>
                                             </div>
                                             <div class="col-2 border-top border-end border-dark" style="text-align:center;">
-                                                <span class="fs-5 fw-bolder">預拌混凝土材料費</span>
+                                                <span class="fs-5 fw-bolder">{{pcces_encode_desc.six_desc}}</span>
                                             </div>
                                             <div class="col-2 border-top border-end border-dark" style="text-align:center;">
-                                                <span class="fs-5 fw-bolder">175kgf/cm2</span>
+                                                <span class="fs-5 fw-bolder">{{pcces_encode_desc.senven_desc}}</span>
                                             </div>
                                             <div class="col-1 border-top border-end border-dark" style="text-align:center;">
-                                                <span class="fs-5 fw-bolder">不分類</span>
+                                                <span class="fs-5 fw-bolder">{{pcces_encode_desc.eight_desc}}</span>
                                             </div>
-                                            <div class="col-1 border-top border-end border-dark" style="text-align:center;">
-                                                <span class="fs-5 fw-bolder">不分類</span>
+                                            <div class="col-2 border-top border-end border-dark" style="text-align:center;">
+                                                <span class="fs-5 fw-bolder">{{pcces_encode_desc.nine_desc}}</span>
                                             </div>
                                             <div class="col-1 border-top border-dark" style="text-align:center;">
-                                                <span class="fs-5 fw-bolder">M3</span>
+                                                <span class="fs-5 fw-bolder">{{pcces_encode_desc.ten_desc}}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -152,7 +154,7 @@
                             <!--begin::Row-->
                             <div class="row mb-10">
                                 <span class="col-lg-3 text-lg-end">產品分類部門 : </span>
-                                <span class="col-lg-9 col-xl-4 text-lg-start">{{product.secondary_category_id}}</span>
+                                <span class="col-lg-9 col-xl-4 text-lg-start">{{product.secondary_category.name}}</span>
                             </div>
                             <!--end::Row-->    
                             <!--begin::Row-->
@@ -160,19 +162,7 @@
                                 <span class="col-lg-3 text-lg-end">部門敘述：</span>
                                 <span class="col-lg-9 col-xl-4 text-lg-start">{{product.secondary_category_desc}}</span>
                             </div>
-                            <!--end::Row-->        
-                            <!--begin::Row-->
-                            <div class="row mb-10">
-                                <span class="col-lg-3 text-lg-end">產業碳足跡：</span>
-                                <span class="col-lg-9 col-xl-4 text-lg-start"></span>
-                            </div>
-                            <!--end::Row-->    
-                            <!--begin::Row-->
-                            <div class="row mb-10">
-                                <span class="col-lg-3 text-lg-end">產品運輸所屬部門：</span>
-                                <span class="col-lg-9 col-xl-4 text-lg-start"></span>
-                            </div>
-                            <!--end::Row-->            
+                            <!--end::Row-->             
 
                         </div>
                         <!--end::Tab pane-->
@@ -180,11 +170,11 @@
                         <div class="tab-pane" id="kt_builder_header">
                             <div class="row mb-10">
                                 <span class="col-lg-3 text-lg-end">碳足跡數值：</span>
-                                <span class="col-lg-9 col-xl-4 text-lg-start">{{product.pcces_encode}}</span>
+                                <span class="col-lg-9 col-xl-4 text-lg-start">{{product.co2_allocation.total_carbon_footprint}}</span>
                             </div>
                             <div class="row mb-10">
                                 <span class="col-lg-3 text-lg-end">生命週期盤查分析方法：</span>
-                                <span class="col-lg-9 col-xl-4 text-lg-start">{{product.analytic_method_id}}</span>
+                                <span class="col-lg-9 col-xl-4 text-lg-start">{{product.analytic_method.method}}</span>
                             </div>
                             <div class="row mb-10">
                                 <span class="col-lg-3 text-lg-end">排放係數來源：</span>
@@ -208,7 +198,12 @@
                             </div>
                             <div class="row mb-10">
                                 <span class="col-lg-3 text-lg-end">產品製造流程:</span>
-                                <span class="col-lg-9 col-xl-4 text-lg-start">{{product.product_flow_image}}</span>
+                                {% if product.product_flow_image %}
+                                <img src="{{MEDIA_URL}}{{product.product_flow_image.url}}" style="width:50%">
+                                {% else %}
+                                <span class="col-lg-9 col-xl-4 text-lg-start"></span>
+                                {% endif %}
+                                
                             </div>
                         </div>
                         <!--end::Tab pane-->

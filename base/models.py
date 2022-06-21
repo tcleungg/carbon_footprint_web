@@ -12,11 +12,11 @@ class PrimaryCategory(models.Model):
     def __str__(self):
         return self.name
 
-class SecondaryCategory(models.Model):
+class IndustrialCategory(models.Model):
     id = models.CharField(max_length=30, primary_key=True) # 細分類_id
     name = models.TextField() # 產品描述
     desc = models.TextField() # 細分類敘述
-    primary_category = models.ForeignKey(PrimaryCategory, related_name = "secondary_categories", on_delete = models.CASCADE) # 大分類_id
+    primary_category = models.ForeignKey(PrimaryCategory, related_name = "industrial_categories", on_delete = models.CASCADE) # 大分類_id
 
     class Meta:
         app_label = "carbon_footprint_web"
@@ -35,7 +35,7 @@ class AnalyticMethod(models.Model):
     def __str__(self):
         return self.id
 
-class DataLevel(models.Model):
+class DataQuality(models.Model):
     id = models.CharField(max_length=30, primary_key=True)
     desc = models.TextField() 
 
@@ -47,8 +47,8 @@ class DataLevel(models.Model):
 
 class Co2Allocation(models.Model):
     pcces_encode = models.CharField(max_length=30, primary_key=True)
-    cradle_to_door = models.FloatField(null = True)
-    door_to_site = models.FloatField(null = True)
+    cradle_to_gate  = models.FloatField(null = True) # 搖籃到大門
+    factory_gate_to_site = models.FloatField(null = True) # 工廠大門到工地
     total_carbon_footprint = models.FloatField(null = True)
     unit = models.CharField(max_length=30)
 
@@ -61,12 +61,14 @@ class Co2Allocation(models.Model):
 class PccesEncode(models.Model): 
     pcces_encode = models.CharField(max_length=30, primary_key=True)
     name = models.TextField()
+    common_name = models.TextField(null = True)
     chapter = models.TextField()
     six_desc = models.TextField()
     senven_desc = models.CharField(max_length=50)
     eight_desc = models.CharField(max_length=50)
     nine_desc = models.CharField(max_length=50)
     ten_desc = models.CharField(max_length=30)
+    eleven_desc = models.CharField(max_length=50, null = True)
 
     class Meta:
         app_label = "carbon_footprint_web"
@@ -76,20 +78,23 @@ class PccesEncode(models.Model):
 
 class Product(models.Model):
     primary_category = models.ForeignKey(PrimaryCategory, null=True, on_delete = models.CASCADE) # 大分類_id
-    secondary_category = models.ForeignKey(SecondaryCategory, null=True, on_delete = models.CASCADE) # 細分類_id
-    secondary_category_desc = models.TextField() # 細分類敘述
+    industrial_category = models.ForeignKey(IndustrialCategory, null=True, on_delete = models.CASCADE) # 細分類_id
+    industrial_category_desc = models.TextField() # 細分類敘述
     pcces_encode = models.CharField(primary_key=True, max_length=30) # 編碼
     name = models.TextField()
     image = models.ImageField(upload_to='product_image/') # 產品圖片
     origin = models.CharField(max_length=50) # 製造地點
-    product_desc = models.TextField() # 產品描述
-    scope = models.CharField(max_length=30) # 產品邊界
+    technology_desc = models.TextField() # 技術描述
+    lifecycle_category = models.CharField(max_length=30) # 生命週期範疇(系統邊界)
+    excluded_item = models.CharField(max_length=50) # 排除項目
     co2_allocation = models.ForeignKey(Co2Allocation, null=True, on_delete = models.CASCADE) # 碳足跡數值_id
-    analytic_method = models.ForeignKey(AnalyticMethod, null=True, on_delete = models.CASCADE) # 生命週期盤查分析方法
+    lifecycle_analytic_method = models.ForeignKey(AnalyticMethod, null=True, on_delete = models.CASCADE) # 生命週期盤查分析方法
+    data_generator = models.CharField(max_length=30, null=True) # 活動數據來源
     emission_coefficient_source = models.CharField(max_length=30) # 排放係數來源
     ISO_standard = models.CharField(max_length=30) # 國際規範
     analysis_time_resource = models.CharField(max_length=30) # 分析時間依據
-    data_level = models.ForeignKey(DataLevel, null=True, on_delete = models.CASCADE) # 數據品質等級
+    valid_time_span = models.CharField(max_length=20) # 盤查起訖日
+    data_quality = models.ForeignKey(DataQuality, null=True, on_delete = models.CASCADE) # 數據品質等級
     product_flow_image = models.ImageField(upload_to='product_flow_image/') # 產品製造流程
     company_name = models.CharField(max_length=512) # 建置單位名稱
     company_phone = models.CharField(max_length=30) # 建置單位聯絡電話

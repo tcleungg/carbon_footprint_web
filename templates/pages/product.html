@@ -212,7 +212,7 @@
                                 <span class="col-lg-3 text-lg-end">總碳足跡：</span>
                                 <span class="col-lg-9 col-xl-5 text-lg-start">{{product.co2_allocation.total_carbon_footprint}} {{product.co2_allocation.unit}}</span>
                             </div>
-                            {% if pcces_encode.last == 'T' %}
+                            {% if pcces_encode|last == 'T' %}
                             <div class="row mb-10">
                                 <span class="col-lg-3 text-lg-end">成品運輸：</span>
                                 <span class="col-lg-9 col-xl-5 text-lg-start">{{product.analytic_method.method}}</span>

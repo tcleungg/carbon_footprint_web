@@ -6,8 +6,8 @@
     <div class="card mb-10">
         <div class="card-body d-flex align-items-center p-5 p-lg-8">
             <div class="row">
-                {% if secondary_category %}
-                <h2><a href="{% url 'category'%}">{{primary_category}}</a> > {{secondary_category}}</h2>
+                {% if industrial_category %}
+                <h2><a href="{% url 'category'%}">{{primary_category}}</a> > {{industrial_category}}</h2>
                 {% else %}
                 <h2><a href="{% url 'category'%}">{{primary_category}}</a></h2>
                 {% endif %}

@@ -7,7 +7,7 @@
           <div class="row">
         <h2>分類</h2>
       {% for primary_categories in categories %}
-      {% if primary_categories.secondary_categories.all%}
+      {% if primary_categories.industrial_categories.all%}
       <div class="accordion-item">
         <h2 class="accordion-header" id="heading-{{ forloop.counter }}">
           <button class="accordion-button collapsed fw-bold" 
@@ -20,7 +20,7 @@
           </button>
         </h2>
         <div id="collapse-{{ forloop.counter }}" class="accordion-collapse collapse" aria-labelledby="heading-{{ forloop.counter }}" data-bs-parent="#accordionExample">
-          {% for secondary_categories in primary_categories.secondary_categories.all %}
+          {% for industrial_categories in primary_categories.industrial_categories.all %}
           <h2 class="mb-0">
             <button class="btn" style="position: relative; 
                                         display: flex; 
@@ -35,8 +35,8 @@
                     data-bs-target="#collapse-{{ forloop.counter }}" 
                     aria-expanded="false" 
                     aria-controls="collapse-{{ forloop.counter }}"
-                    onclick="location.href='{% url 'secondary_category_products' primary_categories.name secondary_categories.name %}'">
-            {{ secondary_categories.name }}
+                    onclick="location.href='{% url 'industrial_category_products' primary_categories.name industrial_categories.name %}'">
+            {{ industrial_categories.name }}
             </button>
           </h2>
 

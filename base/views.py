@@ -22,7 +22,10 @@ def slice_pcces_encode(pcces_encode):
 
 def product(request, pcces_encode):
     product = Product.objects.select_related().get(pcces_encode=pcces_encode)
-    pcces_encode_desc = PccesEncode.objects.get(pcces_encode=pcces_encode)
+    try:
+        pcces_encode_desc = PccesEncode.objects.get(pcces_encode=pcces_encode)   
+    except PccesEncode.DoesNotExist:
+        pcces_encode_desc = {}
     pcces_encode = slice_pcces_encode(pcces_encode)
     if product.review_date == None: 
         product.review_date = ''

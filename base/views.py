@@ -18,7 +18,7 @@ def search(request):
                         {"query":query, "products":products})
 
 def slice_pcces_encode(pcces_encode):
-    return [pcces_encode[0], pcces_encode[1:6], pcces_encode[6],pcces_encode[7],pcces_encode[8],pcces_encode[9],pcces_encode[10]]
+    return [pcces_encode[0], pcces_encode[1:6]] + [c for c in pcces_encode[6:]]
 
 def product(request, pcces_encode):
     product = Product.objects.select_related().get(pcces_encode=pcces_encode)

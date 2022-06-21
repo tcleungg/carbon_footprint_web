@@ -2,8 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 import logging
 
-from . models import Product, PrimaryCategory, SecondaryCategory, \
-                    AnalyticMethod, DataLevel, Co2Allocation, PccesEncode
+from . models import Product, PrimaryCategory, IndustrialCategory, \
+                    AnalyticMethod, DataQuality, Co2Allocation, PccesEncode
 # Create your views here.
 def home(request):
     return render(request, 'pages/home.html')
@@ -33,7 +33,7 @@ def product(request, pcces_encode):
                             "pcces_encode_desc":pcces_encode_desc})
 
 def category(request):
-    categories = PrimaryCategory.objects.all().prefetch_related('secondary_categories')
+    categories = PrimaryCategory.objects.all().prefetch_related('industrial_categories')
     for category in categories:
         category.category_id = category.category_id.strip()
     return render(request, 'pages/category.html', {"categories":categories})
@@ -46,14 +46,14 @@ def primary_category_products(request, primary_category):
     return render(request, 'pages/category_products.html', 
                             {"primary_category":primary_category, "products":products})
 
-def secondary_category_products(request, primary_category, secondary_category):
+def industrial_category_products(request, primary_category, industrial_category):
     try:
         products = Product.objects.select_related('primary_category') \
                     .filter(primary_category__name=primary_category) \
-                    .select_related('secondary_category').filter(secondary_category__name=secondary_category)
+                    .select_related('industrial_category').filter(industrial_category__name=industrial_category)
     except Product.DoesNotExist:
         products = {}
     return render(request, 'pages/category_products.html', 
                             {"primary_category":primary_category,
-                                "secondary_category":secondary_category,
+                                "industrial_category":industrial_category,
                                 "products":products})
